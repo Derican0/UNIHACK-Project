@@ -1,4 +1,54 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+### Run Environment
+```sh
+# Start docker compose and open browser for front and back end
+./start.sh
+```
+
+### Docker 
+``` sh
+# Build docker
+docker-compose up --build
+```
+
+# LookNatural
+
+A BeReal-inspired app for nature photography challenges, built with React Native and MongoDB.
+
+## Features
+
+- User authentication (signup/login)
+- Daily nature photography challenges with three difficulty levels (easy, medium, hard)
+- Points system based on challenge difficulty
+- Photo gallery of completed challenges
+- User profiles with statistics
+
+## Tech Stack
+
+- **Frontend**: React Native with Expo
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+- **State Management**: Redux
+- **Authentication**: JWT
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or newer)
+- npm or yarn
+- Expo CLI (`npm install -g expo-cli`)
+- MongoDB Atlas account or local MongoDB
+- iOS/Android emulator or physical device
+
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/nature-app.git
+   cd nature-app
+
+
+<!-- This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
 
@@ -94,11 +144,4 @@ To learn more about React Native, take a look at the following resources:
 - [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-
-
-# Docker 
-``` sh
-# Build docker
-docker-compose up --build
-```
+- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native. -->
