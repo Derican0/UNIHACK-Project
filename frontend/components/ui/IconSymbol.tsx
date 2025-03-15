@@ -15,6 +15,7 @@ const MAPPING = {
   "chevron.right": "chevron-right",
   "filmstrip.fill": "film",
   "square.and.arrow.up.fill": "share",
+  "person.2.fill": "group",
 } as Partial<
   Record<
     import("expo-symbols").SymbolViewProps["name"],
