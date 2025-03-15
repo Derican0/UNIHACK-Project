@@ -42,11 +42,11 @@ export default function HomeScreen() {
             />
             <Image
               source={require("@/assets/images/stick2.png")}
-              style={[{ top: 80, right: 30, width: 50, height: 50 }]}
+              style={[{ top: 90, right: 30, width: 50, height: 50 }]}
             />
             <Image
               source={require("@/assets/images/stick3.png")}
-              style={[{ bottom: 20, left: 100, width: 50, height: 50 }]}
+              style={[{ bottom: 10, left: 100, width: 50, height: 50 }]}
             />
           </>
         )}
