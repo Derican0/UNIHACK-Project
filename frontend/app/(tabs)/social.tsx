@@ -52,6 +52,7 @@ export default function TabTwoScreen() {
   );
 }
 
+// CHANGFE TO BACKEND
 const images = [
   {
     id: 1,
