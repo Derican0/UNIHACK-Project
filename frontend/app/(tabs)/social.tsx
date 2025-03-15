@@ -1,11 +1,8 @@
 import { StyleSheet, Image, Platform } from "react-native";
 
-import { Collapsible } from "@/components/Collapsible";
-import { ExternalLink } from "@/components/ExternalLink";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
-import { IconSymbol } from "@/components/ui/IconSymbol";
+import ParallaxScrollView from "../../components/ParallaxScrollView";
+import { ThemedText } from "../../components/ThemedText";
+import { ThemedView } from "../../components/ThemedView";
 import { FlatList, View } from "react-native";
 import { useState } from "react";
 import { Rating } from "react-native-ratings";
@@ -24,7 +21,7 @@ export default function TabTwoScreen() {
       headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
       headerImage={
         <Image
-          source={require("@/assets/images/socialHeader2.webp")}
+          source={require("../../assets/images/socialHeader2.webp")}
           style={[styles.reactLogo, { width: "100%", height: "100%" }]}
           resizeMode="cover"
         />
@@ -56,9 +53,21 @@ export default function TabTwoScreen() {
 }
 
 const images = [
-  { id: 1, source: require("@/assets/images/image1.webp"), text: "Mission 1" },
-  { id: 2, source: require("@/assets/images/image2.webp"), text: "Mission 2" },
-  { id: 3, source: require("@/assets/images/image3.webp"), text: "Mission 3" },
+  {
+    id: 1,
+    source: require("../../assets/images/image1.webp"),
+    text: "Mission 1",
+  },
+  {
+    id: 2,
+    source: require("../../assets/images/image2.webp"),
+    text: "Mission 2",
+  },
+  {
+    id: 3,
+    source: require("../../assets/images/image3.webp"),
+    text: "Mission 3",
+  },
 ];
 
 const styles = StyleSheet.create({
