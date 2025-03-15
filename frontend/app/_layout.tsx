@@ -18,8 +18,10 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
+    Rock3D: require("../assets/fonts/Rock3D-Regular.ttf"),
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
-    Rock3D: require("../assets/fonts/Rock3d.ttf"),
+    RubikIso: require("../assets/fonts/RubikIso-Regular.ttf"),
+    Tiny5: require("../assets/fonts/Tiny5-Regular.ttf"),
   });
 
   useEffect(() => {
