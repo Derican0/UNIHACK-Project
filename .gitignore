@@ -1,64 +1,39 @@
-# Dependencies
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
 node_modules/
-npm-debug.log
-yarn-error.log
-yarn.lock
-package-lock.json
+frontend/node_modules/
 
 # Expo
-.expo/
-dist/
+frontend/.expo/
 web-build/
+frontend/dist/
+frontend/expo-env.d.ts
 
 # Native
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
+frontend/*.jks
+frontend/*.orig.*
+frontend/*.p8
+frontend/*.p12
+frontend/*.key
+frontend/*.mobileprovision
 
-# Environment variables
-.env
-.env.local
-.env.development
-.env.test
-.env.production
+# Metro
+frontend/.metro-health-check*
+
+# debug
+frontend/npm-debug.*
+frontend/yarn-debug.*
+frontend/yarn-error.*
 
 # macOS
-.DS_Store
-*.pem
+frontend/.DS_Store
+frontend/*.pem
 
-# Android/IntelliJ
-build/
-.idea
-.gradle
-local.properties
-*.iml
-*.hprof
-android/app/build/
+# local env files
+frontend/.env*.local
 
-# iOS
-ios/Pods/
-ios/build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.ipa
-*.xcuserstate
-project.xcworkspace
+# typescript
+frontend/*.tsbuildinfo
 
-# Testing
-coverage/
-
-# VS Code
-.vscode/
+frontend/app-example
