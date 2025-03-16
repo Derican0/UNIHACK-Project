@@ -14,10 +14,6 @@ const ChallengeSchema = new Schema({
     type: String,
     enum: ['easy', 'medium', 'hard'],
     required: true
-  },
-  verificationTags: {
-    type: [String],
-    required: true
   }
 });
 

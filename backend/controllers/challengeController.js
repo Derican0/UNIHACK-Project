@@ -1,4 +1,4 @@
-import '../models/Challenge.js';
+import Challenge from "../models/Challenge.js";
 
 /**
  * Get all challenges
@@ -68,10 +68,10 @@ export const getChallenge = async (req, res) => {
  */
 export const createChallenge = async (req, res) => {
   try {
-    const { title, description, difficulty, verificationTags, points } = req.body;
+    const { title, description, difficulty, points } = req.body;
     
     // Basic validation
-    if (!title || !description || !difficulty || !verificationTags || !points) {
+    if (!title || !description || !difficulty ||!points) {
       return res.status(400).json({ message: 'All fields are required' });
     }
     
@@ -83,7 +83,6 @@ export const createChallenge = async (req, res) => {
       title,
       description,
       difficulty,
-      verificationTags,
       points
     });
     
@@ -164,7 +163,7 @@ export const deleteChallenge = async (req, res) => {
    */
   export const updateChallenge = async (req, res) => {
     try {
-      const { title, description, difficulty, verificationTags, points } = req.body;
+      const { title, description, difficulty, points } = req.body;
       
       // Build challenge object
       const challengeFields = {};
@@ -176,7 +175,6 @@ export const deleteChallenge = async (req, res) => {
         }
         challengeFields.difficulty = difficulty;
       }
-      if (verificationTags) challengeFields.verificationTags = verificationTags;
       if (points) challengeFields.points = points;
       
       let challenge = await Challenge.findById(req.params.id);
