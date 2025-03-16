@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "ambient-future-453822-g8",
+  "private_key_id": "7568d8e2d20ba5bd2974c0554ec9133b2d7a2636",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC68TyTroaq3drT\n0OFFUdWaWMSX7s2nIQ7E98VUCSWivsINfx7E1dGEt/Uvh7SGL6cCFBen4EjBWsoH\nqtgfwxVebtsaaNsGcYZLAmbLLSpsg11R+u0j1Wlp6lWdEp5Ff5g7Nvs5q4I7+DYd\nUgaw5cB5Cq6i5ADmCgE7nuusnjbloLseNOKYwFf49/QffSGeFCoXi5p+0T4WeLHO\nyGnKNfNDBV6pVnFQ2QsRNKD+/y+Ls7yCVZBQUhhrIMZ4vs4bvvJlFVUcLFI052zJ\n07dMS1Gpm68dyT2hRG5Y+v1/dwW6fJd0yDLv77hIV3niInCKnSYtDOSIhrDcZXn7\ntC47X9bvAgMBAAECggEAUl+mP7TxpizoFdm+ydrLcp2W0xPpDrHkXiqHiwYUzWec\n/nF7T2SgVAjzQyRbCZ3Jy4KrAdA0fu7Qgxxm62f87IWQikyV5nrzn+3I+dJHFVW1\nM0CMafPJ5V/apcHkd99HZyBNBxZp5p7yyWyxghVbAHsShLhPJQ5XiLv4QTHeIsQz\noHvMf3y7ZLBI18ySfo4BB0IovM8Hj+HsKwDtVx4lC7Cq3UYlQ8sto3MM0u2/e9xB\nTnfuVMKZOiKJUvgEb4MJ5uCYi9viSwNBXCtgnpRhtVeVRzk0nu/oS4jQZvq2c6A5\nVdJDEd/38+wOENIzUj11ca4j8JviFSv+R/LYK/82cQKBgQD8xUobPP2ZVQbGVYu+\n8wry6D6sR7XmS3w/ts+SqKlNxknXWTDDWH+Oi/FbLoRl+HpxyU8CF8ISfUXMEtPJ\n/ANLwrkaxp3HbzVe59ewSr2sX4dStnw8RwRFkBT8VfA8p6pKwidhyLpBiwOLE3Ob\nISvs5Gh2RFFh9a4xi1r0vSvJIwKBgQC9VKY6Dv9oeplin26gN0GZkuDHboOt5fUo\nhk/2GsNymrLIatJPOQqhJQmKzRIJTKBPJhaO9Z/fqWus7Gdy51bcyBo+KOjSF1PM\nrYP9aiZnGIf4oYntFg6qJWKA46TFgcAnTig/KkRSqRSVovoKwb9O9QhOSwSdvHKR\nOFSK+LQlxQKBgFep8Labo3QvKedVOd8imXR/GWVUhYB2Q4QxWbIKbpU7pNZb526I\nXczJOg6ehmp7D7Qw1gbqyHLzIWbSTMNrdJUs1lez9Hp7Vi4xB/vrH/cNNnh4M4QQ\nOSoK+0w8XdIbcBL3XQMrw3UBylvMhjaR/ZLt8FC8BuGLfDtQkl340ZuzAoGAPuum\n4pyhXQOBfjkl9rDmaDdb5Gth76UAuJsKb+utEKVAzUJS6mk2kx9P8IT+fYCttiAe\nVxxiKV6QnkNijdk8ENuffRDzbv65psfzmYBxismoRoTI5bXy4bDS76q307uvNGDR\nF0zgr+fpI2GqX3DMN11PiVV9Dz7VhFWIIzdMB1ECgYBNa9A8OsfA1JlUq9foYP3K\nf3FQIxvD6rlsgydr+9ciooagyUkEIIewZIKY2rE9MKgDuJY3+SBLJwp+GL2/CNDr\nTEv63k5hgEGQ41HHtVoZtE/ql5IPUWRLqsXOlQsaaWOKZuvAJoGGJSHcMEaDDKMn\nzkozGl7D833pQRhjoNz6sA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "storage-admin-service-account@ambient-future-453822-g8.iam.gserviceaccount.com",
+  "client_id": "115937959951914632146",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/storage-admin-service-account%40ambient-future-453822-g8.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

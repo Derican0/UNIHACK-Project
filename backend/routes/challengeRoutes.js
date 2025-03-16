@@ -1,32 +1,24 @@
+// routes/challengeRoutes.js
 import express from 'express';
 const router = express.Router();
-import '../controllers/userController.js';
 
-import {
-  getChallenges,
-  getChallenge,
-  createChallenge,
-  updateChallenge,
-  deleteChallenge,
-  getChallengesByDifficulty,
-  getRandomChallenge
-} from '../controllers/challengeController.js';
+// Import from controller
+import challengeController from '../controllers/challengeController.js';
 
 // Get all challenges
-router.get('/', getChallenges);
+router.get('/', challengeController.getChallenges);
 
 // Get challenges by difficulty
-router.get('/difficulty/:difficulty', getChallengesByDifficulty);
+router.get('/difficulty/:difficulty', challengeController.getChallengesByDifficulty);
 
 // Get a random challenge
-router.get('/random', getRandomChallenge);
-router.get('/random/:difficulty', getRandomChallenge);
+router.get('/random', challengeController.getRandomChallenge);
+router.get('/random/:difficulty', challengeController.getRandomChallenge);
 
-// Get, update, delete challenge by ID
-router.get('/:id', getChallenge);
-router.post('/', createChallenge);
-router.put('/:id', updateChallenge);
-router.delete('/:id', deleteChallenge);
+// Create a new challenge
+router.post('/', challengeController.createChallenge);
 
-const challengeRoutes = router;
-export default challengeRoutes;
+// Get challenge by ID
+router.get('/:id', challengeController.getChallenge);
+
+export default router;

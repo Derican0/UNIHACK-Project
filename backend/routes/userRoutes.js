@@ -1,15 +1,18 @@
+// routes/userRoutes.js
 import express from 'express';
 const router = express.Router();
-import '../controllers/userController.js';
+import upload from '../middleware/uploadMiddleware.js';
 
 import {
   registerUser,
   getUserProfile,
   updateDeviceToken,
-  completeChallenge,
   getCompletedChallenges,
   getDailyChallenge
 } from '../controllers/userController.js';
+
+// Import the challenge completion controller
+import { completeChallenge } from '../controllers/challengeCompletionController.js';
 
 // Register user
 router.post('/', registerUser);
@@ -20,8 +23,8 @@ router.get('/:id', getUserProfile);
 // Update device token
 router.put('/:id/device-token', updateDeviceToken);
 
-// Complete a challenge
-router.post('/:id/complete-challenge', completeChallenge);
+// Complete a challenge with photo upload
+router.post('/:id/complete-challenge', upload.single('photo'), completeChallenge);
 
 // Get completed challenges
 router.get('/:id/completed-challenges', getCompletedChallenges);
@@ -29,5 +32,4 @@ router.get('/:id/completed-challenges', getCompletedChallenges);
 // Get daily challenge
 router.get('/:id/daily-challenge', getDailyChallenge);
 
-const userRoutes = router;
-export default userRoutes;
+export default router;

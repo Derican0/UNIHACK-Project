@@ -1,4 +1,5 @@
-import '../models/Challenge.js';
+// controllers/challengeController.js
+import Challenge from '../models/Challenge.js';
 
 /**
  * Get all challenges
@@ -71,24 +72,27 @@ export const createChallenge = async (req, res) => {
     const { title, description, difficulty, verificationTags, points } = req.body;
     
     // Basic validation
-    if (!title || !description || !difficulty || !verificationTags || !points) {
-      return res.status(400).json({ message: 'All fields are required' });
+    if (!title || !description || !difficulty) {
+      return res.status(400).json({ message: 'Title, description, and difficulty are required' });
     }
     
     if (!['easy', 'medium', 'hard'].includes(difficulty)) {
       return res.status(400).json({ message: 'Difficulty must be easy, medium, or hard' });
     }
     
+    // Create new challenge object
     const newChallenge = new Challenge({
       title,
       description,
       difficulty,
-      verificationTags,
-      points
+      verificationTags: verificationTags || [],
+      points: points || 0
     });
     
-    const challenge = await newChallenge.save();
-    res.status(201).json(challenge);
+    // Save the challenge
+    const savedChallenge = await newChallenge.save();
+    
+    res.status(201).json(savedChallenge);
   } catch (error) {
     console.error('Error creating challenge:', error);
     res.status(500).json({ message: 'Server error' });
@@ -131,74 +135,12 @@ export const getRandomChallenge = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
-/**
- * Delete a challenge
- * @route DELETE /api/challenges/:id
- * @access Private (would require auth middleware in production)
- */
-export const deleteChallenge = async (req, res) => {
-    try {
-      const challenge = await Challenge.findById(req.params.id);
-      
-      if (!challenge) {
-        return res.status(404).json({ message: 'Challenge not found' });
-      }
-      
-      await challenge.remove();
-      res.json({ message: 'Challenge removed' });
-    } catch (error) {
-      console.error('Error deleting challenge:', error);
-      
-      if (error.kind === 'ObjectId') {
-        return res.status(404).json({ message: 'Challenge not found' });
-      }
-      
-      res.status(500).json({ message: 'Server error' });
-    }
-  };
-  
-  /**
-   * Update a challenge
-   * @route PUT /api/challenges/:id
-   * @access Private (would require auth middleware in production)
-   */
-  export const updateChallenge = async (req, res) => {
-    try {
-      const { title, description, difficulty, verificationTags, points } = req.body;
-      
-      // Build challenge object
-      const challengeFields = {};
-      if (title) challengeFields.title = title;
-      if (description) challengeFields.description = description;
-      if (difficulty) {
-        if (!['easy', 'medium', 'hard'].includes(difficulty)) {
-          return res.status(400).json({ message: 'Difficulty must be easy, medium, or hard' });
-        }
-        challengeFields.difficulty = difficulty;
-      }
-      if (verificationTags) challengeFields.verificationTags = verificationTags;
-      if (points) challengeFields.points = points;
-      
-      let challenge = await Challenge.findById(req.params.id);
-      
-      if (!challenge) {
-        return res.status(404).json({ message: 'Challenge not found' });
-      }
-      
-      challenge = await Challenge.findByIdAndUpdate(
-        req.params.id,
-        { $set: challengeFields },
-        { new: true }
-      );
-      
-      res.json(challenge);
-    } catch (error) {
-      console.error('Error updating challenge:', error);
-      
-      if (error.kind === 'ObjectId') {
-        return res.status(404).json({ message: 'Challenge not found' });
-      }
-      
-      res.status(500).json({ message: 'Server error' });
-    }
-  };
+
+// Export all functions
+export default {
+  getChallenges,
+  getChallenge,
+  getChallengesByDifficulty,
+  getRandomChallenge,
+  createChallenge
+};

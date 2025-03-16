@@ -11,5 +11,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@google-cloud/storage": "^7.15.2",
+    "multer": "^1.4.5-lts.1"
+  }
 }
