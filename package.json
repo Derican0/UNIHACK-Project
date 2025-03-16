@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "name": "nature-app",
     "version": "1.0.0",
     "description": "A BeReal-like app for nature photography",
@@ -31,12 +30,8 @@
         "dotenv": "^16.4.7",
         "express": "^4.21.2",
         "mongoose": "^8.12.1",
-        "multer": "^1.4.5-lts.1"
+        "multer": "^1.4.5-lts.1",
+        "expo": "^48.0.21",
+        "expo-cli": "^6.3.10"
     }
-=======
-  "dependencies": {
-    "expo": "^48.0.21",
-    "expo-cli": "^6.3.10"
-  }
->>>>>>> main
 }

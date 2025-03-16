@@ -12,7 +12,7 @@ import {
 } from '../controllers/userController.js';
 
 // Import the challenge completion controller
-import { completeChallenge } from '../controllers/challengeCompletionController.js';
+import { completeChallenge } from '../controllers/challengecompletionController.js';
 
 // Register user
 router.post('/', registerUser);
