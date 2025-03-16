@@ -1,6 +1,42 @@
 {
+<<<<<<< HEAD
+    "name": "nature-app",
+    "version": "1.0.0",
+    "description": "A BeReal-like app for nature photography",
+    "main": "index.js",
+    "scripts": {
+        "start": "concurrently \"npm run server\" \"npm run client\"",
+        "server": "cd backend && npm run dev",
+        "client": "cd frontend && npm start",
+        "install": "cd backend && npm install && cd ../frontend && npm install",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "react-native",
+        "mongodb",
+        "nature",
+        "photography"
+    ],
+    "author": "Your Team",
+    "license": "MIT",
+    "devDependencies": {
+        "concurrently": "^8.0.1",
+        "nodemon": "^3.1.9"
+    },
+    "dependencies": {
+        "@google-cloud/storage": "^7.15.2",
+        "@google-cloud/vision": "^4.3.3",
+        "body-parser": "^1.20.3",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "mongoose": "^8.12.1",
+        "multer": "^1.4.5-lts.1"
+    }
+=======
   "dependencies": {
     "expo": "^48.0.21",
     "expo-cli": "^6.3.10"
   }
+>>>>>>> main
 }
