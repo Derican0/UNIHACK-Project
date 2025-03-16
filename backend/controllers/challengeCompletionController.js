@@ -2,6 +2,7 @@
 import User from '../models/User.js';
 import Challenge from '../models/Challenge.js';
 import { uploadFile } from '../services/storageService.js';
+import { verifyChallenge } from '../services/visionService.js';
 
 /**
  * Submit completed challenge with direct photo upload
@@ -10,16 +11,27 @@ import { uploadFile } from '../services/storageService.js';
  */
 export const completeChallenge = async (req, res) => {
     try {
-        const { challengeId } = req.body;
+        let { challengeId } = req.body;
         
         if (!challengeId) {
             return res.status(400).json({ message: 'Challenge ID is required' });
+        }
+        
+        // Clean up the challengeId if it has extra quotes
+        if (typeof challengeId === 'string') {
+            challengeId = challengeId.replace(/^"+|"+$/g, '');
         }
         
         // Check if file exists in request
         if (!req.file) {
             return res.status(400).json({ message: 'Challenge photo is required' });
         }
+        
+        console.log('Processing challenge completion:', {
+            userId: req.params.id,
+            challengeId: challengeId,
+            hasFile: !!req.file
+        });
         
         // Find user
         const user = await User.findById(req.params.id);
@@ -35,15 +47,16 @@ export const completeChallenge = async (req, res) => {
         
         // Upload the photo to Google Cloud Storage
         const photoUrl = await uploadFile(req.file);
+        console.log('Photo uploaded successfully:', photoUrl);
         
         // Verify the image using Google Cloud Vision API
-        // Note: This part would require setting up Vision API separately
-        // For now, we'll assume it's verified
-        const verificationResult = {
-            verified: true,
-            matchedTags: challenge.verificationTags,
-            allDetectedLabels: challenge.verificationTags
-        };
+        const verificationResult = await verifyChallenge(
+            photoUrl, 
+            challenge.verificationTags,
+            1  // Require at least 1 matching tag
+        );
+        
+        console.log('Verification result:', verificationResult);
         
         // Create completed challenge record
         const completedChallenge = {
@@ -60,15 +73,18 @@ export const completeChallenge = async (req, res) => {
         // Update total points if verified
         if (verificationResult.verified) {
             user.totalPoints += challenge.points;
+            console.log(`Added ${challenge.points} points to user. New total: ${user.totalPoints}`);
         }
         
         // Clear daily challenge if it matches the completed one
         if (user.dailyChallenge && user.dailyChallenge.challenge && 
             user.dailyChallenge.challenge.toString() === challengeId) {
             user.dailyChallenge = null;
+            console.log('Cleared daily challenge after completion');
         }
         
         await user.save();
+        console.log('User updated with completed challenge');
         
         res.json({
             success: true,
@@ -76,7 +92,12 @@ export const completeChallenge = async (req, res) => {
             points: verificationResult.verified ? challenge.points : 0,
             photoUrl,
             matchedTags: verificationResult.matchedTags,
-            detectedLabels: verificationResult.allDetectedLabels
+            detectedLabels: verificationResult.allDetectedLabels,
+            verificationDetails: {
+                minimumMatchThreshold: verificationResult.minimumMatchThreshold,
+                matchesFound: verificationResult.matchesFound,
+                matchedDetails: verificationResult.matchedDetails
+            }
         });
     } catch (error) {
         console.error('Error completing challenge:', error);
