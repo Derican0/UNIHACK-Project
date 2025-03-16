@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform, View, ViewBase } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import React from "react";
 import { HelloWave } from "../../components/HelloWave";
 import ParallaxScrollView from "../../components/ParallaxScrollView";
@@ -7,6 +7,7 @@ import { ThemedView } from "../../components/ThemedView";
 
 export default function HomeScreen() {
   const [score, setScore] = React.useState(0); // Initialize score state
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
@@ -23,6 +24,7 @@ export default function HomeScreen() {
         <ThemedText type="title">Leaderboard</ThemedText>
         <HelloWave />
       </ThemedView>
+
       <ThemedView style={[styles.stackContainer]}>
         {/* Stack two score text above each other for stylistic outline */}
         <ThemedText style={[styles.scoreText, { paddingTop: 100 }]}>
@@ -31,25 +33,6 @@ export default function HomeScreen() {
         <ThemedText style={[styles.strokeScoreText, { paddingTop: 100 }]}>
           {score}
         </ThemedText>
-
-        {/* Add stick figures if score is less than 10 */}
-
-        {score < 10 && (
-          <>
-            <Image
-              source={require("../../assets/images/stick1.png")}
-              style={[{ top: 20, right: 60, width: 50, height: 50 }]}
-            />
-            <Image
-              source={require("../../assets/images/stick2.png")}
-              style={[{ top: 90, right: 30, width: 50, height: 50 }]}
-            />
-            <Image
-              source={require("../../assets/images/stick3.png")}
-              style={[{ bottom: 10, left: 100, width: 50, height: 50 }]}
-            />
-          </>
-        )}
       </ThemedView>
 
       <ThemedView style={(styles.middleContainer, { alignItems: "center" })}>
